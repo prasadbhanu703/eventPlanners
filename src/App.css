@@ -1,0 +1,116 @@
+.App {
+}
+.header {
+  position: fixed;
+  display: flex;
+  flex: auto;
+  height: 70px;
+  justify-content: space-evenly;
+  background-color: gold;
+  font-style: oblique;
+  font-size: larger;
+  font-family: sans-serif;
+  font-variant: small-caps;
+  width: 100%;
+  border: 1px solid black;
+}
+.searchBox {
+  height: 50px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  margin: 8px;
+}
+
+.main-div {
+  align-items: center;
+  padding-top: 0px;
+  margin: 0px;
+  padding-top: 70px;
+}
+.headerlink-title {
+  color: black;
+  text-decoration: none;
+  padding: 0 20px;
+  padding-top: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-bottom: solid 2px black;
+}
+
+.headerlink-title:hover {
+  color: gold;
+  background-color: black;
+}
+
+.bg {
+  color: gold;
+  background-color: black;
+  height: 900px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+}
+
+.images {
+  height: 400px;
+  width: 96%;
+  background-color: gold;
+  padding: 10px;
+  margin: 15px;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.img-container {
+  display: flex;
+}
+
+.lowerNavbar {
+  text-align: center;
+  background-color: black;
+  color: gold;
+  padding-top: 10px;
+  height: 200px;
+  border-top: 1px solid gold;
+  width: 100%;
+}
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px;
+}
+
+.left,
+.right {
+  width: 25%;
+  text-align: center;
+}
+
+.middle {
+  width: 50%;
+}
+
+.booking-buttons {
+  width: 200px;
+  background-color: gold;
+  margin: 40px;
+}
+
+.booking-buttons:hover {
+  color: gold;
+  background-color: black;
+}
+
+.buttons {
+  height: 40px;
+  width: 100px;
+  background-color: rgb(147, 68, 68);
+  margin: 20px;
+}
+
+.buttons:hover {
+  color: gold;
+  background-color: black;
+}
