@@ -52,6 +52,7 @@ const WishList = () => {
               <button
                 className="booking-buttons"
                 onClick={() => {
+                  setIndex(idx);
                   alert(`booked event with ${data.name}`);
                 }}
               >

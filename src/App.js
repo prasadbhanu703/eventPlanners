@@ -8,7 +8,7 @@ import Todo from "./todo";
 import SignInSignUp from "./signInSignUp";
 import WishList from "./wishList";
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
