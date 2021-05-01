@@ -4,6 +4,7 @@ import { Link, Redirect, useParams } from "react-router-dom";
 const Header = () => {
   const { page } = useParams() || "head";
   let [clicked, setClicked] = useState(false);
+  let [searchclicked,setSearch] = useState(false);
 
   const HeaderLink = ({ page }) => {
     const title = page.charAt(0).toUpperCase() + page.slice(1);
@@ -30,6 +31,7 @@ const Header = () => {
         />
         
         {clicked ? <Redirect to="/eventPlanners" /> : ""}
+        
         <HeaderLink page="eventPlanners" selected={page === "home"} />
 
         <form className="search-container" action="/events">
@@ -47,11 +49,14 @@ const Header = () => {
               fontWeight: "lighter",
               height: "40px",
             }}
+            onClick ={ () =>  {setSearch((prev) => !prev) ; console.log("clicked search")}}
           >
             search it
           </button>
+          
         </form>
-
+        
+        {searchclicked ? <Redirect to="/events" /> : ""}
         <HeaderLink page="events" selected={page === "events"} />
         <HeaderLink page="wishList" selected={page === "wishList"} />
         <HeaderLink page="aboutUs" selected={page === "aboutUs"} />

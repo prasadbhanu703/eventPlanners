@@ -15,32 +15,34 @@ function App() {
   const [error, setError] = useState("");
   const [userName, setUserName] = useState(undefined);
 
-  const getUserName = () => {
-    return fetch('http://localhost:9999/userinfo', { credentials: "include"})
-    .then(r => {
-      if(r.ok) {
-        return r.json();
-      } else {
-        setLoggedIn(false);
-        setUserName(undefined);
-        return { success: false };
-      }
-    }).then(r => {
-      if(r.success !== false) {
-        setLoggedIn(true);
-        setUserName(r.userName);
-      }
-    });
-  }
+  // const getUserName = () => {
+  //   // return fetch('http://localhost:9999/userinfo', { credentials: "include"})
+  //   // .then(r => {
+  //   //   if(r.ok) {
+  //   //     return r.json();
+  //   //   } else {
+  //   //     setLoggedIn(false);
+  //   //     setUserName(undefined);
+  //   //     return { success: false };
+  //   //   }
+  //   // }).then(r => {
+  //   //   if(r.success !== false) {
+  //       setLoggedIn(true);
+  //       // setUserName(r.userName);
+  //   //   }
+  //   // });
+  // }
 
-  useEffect(() => {
-    getUserName();
-  }, []);
+  // useEffect(() => {
+  //   getUserName();
+  // }, []);
 
 
   const signupHandler = (username, password) => {
     if(username.includes("@gmail.com")) {
-    loginOrSignup('http://localhost:9999/signup', username, password);
+    // loginOrSignup('http://localhost:9999/signup', username, password);
+    setLoggedIn(true);
+    setUserName(username.slice(-10));
     }
     else {
       setError("Please do enter valid Email/password");
@@ -48,7 +50,9 @@ function App() {
   };
   const loginHandler = (username, password) => {
     if(username.includes("@gmail.com")) {
-      loginOrSignup('http://localhost:9999/login', username, password);
+      // loginOrSignup('http://localhost:9999/login', username, password);
+      setLoggedIn(true);
+      setUserName(username.slice(0,-10));
       }
       else {
         setError("Please do enter valid Email/password");
@@ -56,40 +60,44 @@ function App() {
   };
 
   const logoutHandler = () => {
-    return fetch('http://localhost:9999/logout', { credentials: 'include'})
-    .then(r => {
-      if(r.ok) {
+    // return fetch('http://localhost:9999/logout', { credentials: 'include'})
+    // .then(r => {
+    //   if(r.ok) {
         setLoggedIn(false);
         setUserName(undefined);
-      }
-    })
+    //   }
+    // })
   };
 
+  // const loginOrSignup = (username , password) =>{
+  //   getUserName();
+  // }
 
-  const loginOrSignup = (url, username, password) => {
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify({ userName: username, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials:"include"
-    })
-      .then((r) => {
-        if(r.ok) {
-          return { success: true };
-        } else {
-          return r.json()
-        }
-      })
-      .then((r) => {
-        if(r.success === true) {
-          return getUserName();
-        } else {
-          setError(r.err);
-        }
-      });
-  }
+
+  // const loginOrSignup = (url, username, password) => {
+  //   fetch(url, {
+  //     method: "POST",
+  //     body: JSON.stringify({ userName: username, password }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     credentials:"include"
+  //   })
+  //     .then((r) => {
+  //       if(r.ok) {
+  //         return { success: true };
+  //       } else {
+  //         return r.json()
+  //       }
+  //     })
+  //     .then((r) => {
+  //       if(r.success === true) {
+  //         return getUserName();
+  //       } else {
+  //         setError(r.err);
+  //       }
+  //     });
+  // }
   return (
     <div className="App">
       {loggedIn ? (

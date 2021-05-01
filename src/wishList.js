@@ -40,7 +40,7 @@ const WishList = () => {
               </h4>
             </div>
             <div className="column right">
-              <button
+              {/* <button
                 className="booking-buttons"
                 onClick={() => {
                   setIndex(idx);
@@ -48,7 +48,7 @@ const WishList = () => {
                 }}
               >
                 <h2> Remove </h2>
-              </button>
+              </button> */}
               <button
                 className="booking-buttons"
                 onClick={() => {
