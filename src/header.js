@@ -55,7 +55,7 @@ const Header = () => {
         <HeaderLink page="events" selected={page === "events"} />
         <HeaderLink page="wishList" selected={page === "wishList"} />
         <HeaderLink page="aboutUs" selected={page === "aboutUs"} />
-        <HeaderLink page="logOut" selected={page === "logOut"} />
+        <HeaderLink page="profile" selected={page === "profile"} />
         
       </div>
     </>

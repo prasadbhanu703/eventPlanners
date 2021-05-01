@@ -143,7 +143,7 @@ export default class HomePage extends React.Component {
 
     return this.state.clicked ? (
       <>
-        <div className="main-div">
+        <div className="main-div" style={{backgroundColor:""}}>
           {renderImages}
           <h2 style={{ paddingLeft: "10px" }}>Trending: </h2>
           <div className="img-container">{trendings}</div>

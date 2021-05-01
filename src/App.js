@@ -3,7 +3,7 @@ import Header from "./header";
 import HomePage from "./homePage";
 import Events from "./events";
 import AboutUs from "./aboutUs";
-import LogOut from "./logOut"
+import Profile from "./profile"
 import Todo from "./todo";
 import SignInSignUp from "./signInSignUp";
 import WishList from "./wishList";
@@ -14,14 +14,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState("");
   const [userName, setUserName] = useState(undefined);
-  
-  // const loginHandler = (username, password) => {
-  //   if (username.includes("@gmail.com") && password !== "") {
-  //     setLoggedIn(true);
-  //   } else {
-  //     setError("Please do enter valid Email/password");
-  //   }
-  // };
 
   const getUserName = () => {
     return fetch('http://localhost:9999/userinfo', { credentials: "include"})
@@ -47,10 +39,20 @@ function App() {
 
 
   const signupHandler = (username, password) => {
+    if(username.includes("@gmail.com")) {
     loginOrSignup('http://localhost:9999/signup', username, password);
+    }
+    else {
+      setError("Please do enter valid Email/password");
+    }
   };
   const loginHandler = (username, password) => {
-    loginOrSignup('http://localhost:9999/login', username, password);
+    if(username.includes("@gmail.com")) {
+      loginOrSignup('http://localhost:9999/login', username, password);
+      }
+      else {
+        setError("Please do enter valid Email/password");
+      }
   };
 
   const logoutHandler = () => {
@@ -88,21 +90,19 @@ function App() {
         }
       });
   }
-  console.log("consolling", userName);
   return (
     <div className="App">
       {loggedIn ? (
         <Router>
           <Route path="/:page" component={Header} />
           <Route exact path="/" component={Header} />
-
           <Route exact path="/" component={HomePage} />
           <Route exact path="/eventPlanners" component={HomePage} />
           <Route exact path="/events" component={Events} />
           <Route exact path="/aboutUs" component={AboutUs} />
           <Route exact path="/wishList" component={WishList} />
           <Route exact path="/todo" component={Todo} />
-          <Route exact path="/logOut" render={(props) => <LogOut username={userName} logoutHandler={logoutHandler} />} />
+          <Route exact path="/profile" render={() => <Profile username={userName} logoutHandler={logoutHandler} />} />
         </Router>
       ) : (
         <>

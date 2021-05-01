@@ -67,7 +67,7 @@ const WishList = () => {
   console.log("original data", newData);
   const updatedData = newData.slice(index, 1);
   console.log("updated data,", updatedData);
-  return <div className="main-div">{clicked ? updatedData : newData}</div>;
+  return <div className="main-div" >{clicked ? updatedData : newData}</div>;
 };
 
 export default WishList;
